@@ -29,7 +29,7 @@ export const ProjectEditor: React.FC<ProjectEditorProps> = ({
     { id: crypto.randomUUID(), text: 'Keine externen Tailwinds und Google Fonts', completed: false },
     { id: crypto.randomUUID(), text: 'Google Search Console hinzufügen', completed: false },
     { id: crypto.randomUUID(), text: 'Google Search Console Seiten indexieren', completed: false },
-    { id: crypto.randomUUID(), text: 'Kein oezdens oder andere externe Begrifflichkeiten', completed: false },
+    { id: crypto.randomUUID(), text: 'Keine externen Begrifflichkeiten im Code', completed: false },
   ];
 
   const [formData, setFormData] = useState<Project>(() => {

@@ -1,7 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import { Offer, Customer, OfferStatus } from '@/types';
 import { Plus, Search, Filter, Copy, Pencil, Trash2, FileSpreadsheet, Download, CheckCircle2, XCircle, Send, PieChart, Euro, TrendingUp, Archive } from 'lucide-react';
-import LogoOezdens from '@/Bilder/Logo_oezdens.png';
 
 interface OfferListProps {
   offers: Offer[];
@@ -153,16 +152,15 @@ export const OfferList: React.FC<OfferListProps> = ({
           <div class="content">
             <div class="header">
               <div class="header-left">
-                <div class="logo">oezdensweb</div>
+                <div class="logo">CRM System</div>
                 <div class="sender-address">
-                  Inh. Serhat Özden<br>
-                  Bodemstall 6<br>
-                  74177 Bad Friedrichshall<br>
+                  [Firma eintragen]<br>
+                  [Straße]<br>
+                  [PLZ Ort]<br>
                   Deutschland
                 </div>
               </div>
               <div style="text-align: right;">
-                <img src="${LogoOezdens}" alt="Logo" class="header-logo" />
                 <div style="font-size: 24px; font-weight: 600; color: #4f46e5; margin-top: 25px; letter-spacing: 2px;">ANGEBOT</div>
               </div>
             </div>
@@ -233,7 +231,7 @@ export const OfferList: React.FC<OfferListProps> = ({
           </div>
 
           <div class="footer">
-            <p><strong>Bankverbindung:</strong> Serhat Özden | IBAN: DE98 6205 0000 0007 4221 62 | Kreissparkasse Heilbronn</p>
+            <p><strong>Bankverbindung:</strong> [Name] | IBAN: [IBAN] | [Bank]</p>
           </div>
         </div>
         <script>

@@ -1,5 +1,5 @@
 -- =============================================
--- Supabase Schema für oezdensweb CRM
+-- Supabase Schema für CRM System
 -- =============================================
 
 -- Enable UUID extension

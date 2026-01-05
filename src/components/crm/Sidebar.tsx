@@ -50,8 +50,8 @@ export const Sidebar: React.FC<SidebarProps> = ({ currentView, onChangeView, use
             </div>
         </div>
         <div className="flex flex-col">
-            <span className="text-lg font-bold tracking-tight text-white leading-tight">oezdensweb</span>
-            <span className="text-[10px] uppercase tracking-widest text-indigo-400 font-semibold">CRM Suite</span>
+            <span className="text-lg font-bold tracking-tight text-white leading-tight">CRM System</span>
+            <span className="text-[10px] uppercase tracking-widest text-indigo-400 font-semibold">Suite</span>
         </div>
         {/* Mobile close button */}
         <button
@@ -116,7 +116,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ currentView, onChangeView, use
               <span className="font-bold text-sm">Ö</span>
             </div>
           </div>
-          <span className="text-base font-bold tracking-tight text-white">oezdensweb</span>
+          <span className="text-base font-bold tracking-tight text-white">CRM System</span>
         </div>
         <button
           onClick={() => setIsMobileOpen(true)}
