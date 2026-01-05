@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>oezdensweb — Professionelle & günstige Websites</title>
+    <meta name="description" content="oezdensweb: Moderne, responsive und SEO‑optimierte Webseiten für kleine Unternehmen. Jetzt Angebot anfragen." />
+    <meta name="author" content="oezdensweb" />
+    <meta name="keywords" content="günstige Webseite, günstige webseite heilbronn, günstige webseite stuttgart, webdesign günstig, günstige homepage, günstige webseite münchen" />
+    <link rel="canonical" href="https://oezdens.com/" />
+    
+    <!-- Lokale Fonts - kein Google Fonts für DSGVO-Konformität -->
+    <style>
+      @font-face {
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 100 900;
+        font-display: swap;
+        src: url('/fonts/Inter.woff2') format('woff2');
+      }
+    </style>
+
+    <meta property="og:title" content="oezdensweb — Professionelle & günstige Websites" />
+    <meta property="og:description" content="oezdensweb: Moderne, responsive und SEO‑optimierte Webseiten für kleine Unternehmen." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://oezdens.com/favicon.svg" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://oezdens.com/favicon.svg" />
+    <meta property="og:url" content="https://oezdens.com/" />
+    <meta property="og:locale" content="de_DE" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="shortcut icon" href="/favicon.svg">
+    
+    <!-- Strukturierte Daten für SEO (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "oezdensweb",
+      "description": "Professionelle und günstige Webentwicklung für kleine Unternehmen. Moderne, responsive und SEO-optimierte Webseiten.",
+      "url": "https://oezdens.com",
+      "email": "kontakt@oezdens.com",
+      "image": "https://oezdens.com/favicon.svg",
+      "priceRange": "€€",
+      "areaServed": ["Heilbronn", "Stuttgart", "München", "Berlin", "Hamburg", "Köln", "Frankfurt am Main", "Düsseldorf", "Dortmund", "Essen", "Leipzig", "Nürnberg"],
+      "serviceType": ["Webentwicklung", "Webdesign", "UI/UX Design", "SEO Optimierung", "Responsive Design"],
+      "sameAs": ["https://oezdens.com/impressum"]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "oezdensweb",
+      "url": "https://oezdens.com",
+      "description": "Professionelle und günstige Webentwicklung für kleine Unternehmen"
+    }
+    </script>
+    
+    <!-- Prevent theme flash: inject CSS variables for light + dark and set class before React/CSS loads -->
+    <script>
+      (function(){
+        try {
+          // Inject initial CSS variables so components using var(--...) render correctly before stylesheets load
+          var css = '\n' +
+            ':root { ' +
+            "--background: 210 20% 98%; " +
+            "--foreground: 215 25% 15%; " +
+            "--card: 0 0% 100%; " +
+            "--card-foreground: 215 25% 15%; " +
+            "--popover: 0 0% 100%; " +
+            "--popover-foreground: 215 25% 15%; " +
+            "--primary: 270 85% 52%; " +
+            "--primary-foreground: 0 0% 100%; " +
+            "--secondary: 210 15% 92%; " +
+            "--secondary-foreground: 215 25% 15%; " +
+            "--muted: 210 15% 95%; " +
+            "--muted-foreground: 215 15% 45%; " +
+            "--accent: 320 85% 54%; " +
+            "--accent-foreground: 0 0% 100%; " +
+            "--destructive: 0 84.2% 60.2%; " +
+            "--destructive-foreground: 0 0% 100%; " +
+            "--border: 210 15% 88%; " +
+            "--input: 210 15% 88%; " +
+            "--ring: 200 95% 45%; " +
+            "--radius: 0.75rem; " +
+            "--hero-gradient: linear-gradient(135deg, hsl(270 85% 52%) 0%, hsl(320 85% 54%) 100%); " +
+            "}\n" +
+            ".dark { " +
+            "--background: 230 35% 7%; " +
+            "--foreground: 210 20% 98%; " +
+            "--card: 230 25% 10%; " +
+            "--card-foreground: 210 20% 98%; " +
+            "--popover: 230 25% 10%; " +
+            "--popover-foreground: 210 20% 98%; " +
+            "--primary: 270 85% 58%; " +
+            "--primary-foreground: 0 0% 100%; " +
+            "--secondary: 230 20% 15%; " +
+            "--secondary-foreground: 210 20% 98%; " +
+            "--muted: 230 20% 12%; " +
+            "--muted-foreground: 215 15% 65%; " +
+            "--accent: 320 85% 60%; " +
+            "--accent-foreground: 0 0% 100%; " +
+            "--destructive: 0 62.8% 50%; " +
+            "--destructive-foreground: 210 20% 98%; " +
+            "--border: 230 20% 18%; " +
+            "--input: 230 20% 18%; " +
+            "--ring: 200 95% 55%; " +
+            "--hero-gradient: linear-gradient(135deg, hsl(270 85% 45%) 0%, hsl(320 85% 50%) 100%); " +
+            "}\n";
+          var style = document.createElement('style');
+          style.id = 'initial-theme-variables';
+          style.appendChild(document.createTextNode(css));
+          document.head.appendChild(style);
+
+          // Set dark class early based on saved preference or system
+          var saved = localStorage.getItem('theme');
+          var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+          var useDark = saved === 'dark' || (!saved && prefersDark);
+          if (useDark) document.documentElement.classList.add('dark');
+
+          // Also set inline background color to avoid any flash
+          var darkBg = 'hsl(230 35% 7%)';
+          var lightBg = 'hsl(210 20% 98%)';
+          try { document.documentElement.style.backgroundColor = useDark ? darkBg : lightBg; } catch(e){}
+          try { if (document.body) document.body.style.backgroundColor = useDark ? darkBg : lightBg; } catch(e){}
+          // Add a short-lived overlay to mask intermittent white flashes in hero area
+          try {
+            var overlay = document.createElement('div');
+            overlay.id = 'initial-bg-overlay';
+            overlay.style.position = 'fixed';
+            overlay.style.inset = '0';
+            overlay.style.zIndex = '9999';
+            overlay.style.pointerEvents = 'none';
+            overlay.style.backgroundColor = useDark ? darkBg : lightBg;
+            document.documentElement.appendChild(overlay);
+            function removeOverlay(){ try{ overlay.remove(); } catch(e){} }
+            window.addEventListener('load', removeOverlay);
+            setTimeout(removeOverlay, 1000);
+          } catch(e){}
+        } catch (e) { /* ignore */ }
+      })();
+    </script>
+  </head>
+
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

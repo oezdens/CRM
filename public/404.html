@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Seite nicht gefunden — Lade Anwendung</title>
+  </head>
+  <body>
+    <p>Seite nicht gefunden — lade Anwendung...</p>
+    <script>
+      // GitHub Pages / static hosts: try to fetch index.html and render it so the SPA router
+      // can handle the current path. Falls fetch fehlschlägt, redirect zur Startseite.
+      fetch('/index.html').then(r => r.text()).then(html => {
+        document.open();
+        document.write(html);
+        document.close();
+      }).catch(() => {
+        location.replace('/');
+      });
+    </script>
+  </body>
+</html>
