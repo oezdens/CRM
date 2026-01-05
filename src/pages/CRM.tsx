@@ -13,8 +13,6 @@ import { OfferEditor } from '@/components/crm/OfferEditor';
 import { RentalList } from '@/components/crm/RentalList';
 import { RentalEditor } from '@/components/crm/RentalEditor';
 import { ToDoBoard } from '@/components/crm/ToDoBoard';
-import { ProjectList } from '@/components/crm/ProjectList';
-import { ProjectEditor } from '@/components/crm/ProjectEditor';
 import type { 
   Customer, 
   Invoice, 
@@ -22,7 +20,6 @@ import type {
   RentalContract, 
   Article, 
   ToDo,
-  Project,
   ViewState,
   ToDoStatus
 } from '@/types';
@@ -33,21 +30,18 @@ import {
   fetchOffers,
   fetchRentals,
   fetchTodos,
-  fetchProjects,
   saveCustomer,
   saveArticle,
   saveInvoice,
   saveOffer,
   saveRental,
   saveTodo,
-  saveProject,
   deleteCustomer,
   deleteArticle,
   deleteInvoice,
   deleteOffer,
   deleteRental,
   deleteTodo,
-  deleteProject,
 } from '@/services/dataService';
 
 const CRMContent: React.FC = () => {
@@ -60,7 +54,6 @@ const CRMContent: React.FC = () => {
   const [editingInvoice, setEditingInvoice] = useState<Invoice | null>(null);
   const [editingOffer, setEditingOffer] = useState<Offer | null>(null);
   const [editingRental, setEditingRental] = useState<RentalContract | null>(null);
-  const [editingProject, setEditingProject] = useState<Project | null>(null);
 
   // Data state
   const [customers, setCustomers] = useState<Customer[]>([]);
@@ -69,7 +62,6 @@ const CRMContent: React.FC = () => {
   const [offers, setOffers] = useState<Offer[]>([]);
   const [rentals, setRentals] = useState<RentalContract[]>([]);
   const [todos, setTodos] = useState<ToDo[]>([]);
-  const [projects, setProjects] = useState<Project[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [isGenerating, setIsGenerating] = useState(false);
 
@@ -85,7 +77,6 @@ const CRMContent: React.FC = () => {
           offersData,
           rentalsData,
           todosData,
-          projectsData,
         ] = await Promise.all([
           fetchCustomers(),
           fetchArticles(),
@@ -93,7 +84,6 @@ const CRMContent: React.FC = () => {
           fetchOffers(),
           fetchRentals(),
           fetchTodos(),
-          fetchProjects(),
         ]);
         
         setCustomers(customersData);
@@ -102,7 +92,6 @@ const CRMContent: React.FC = () => {
         setOffers(offersData);
         setRentals(rentalsData);
         setTodos(todosData);
-        setProjects(projectsData);
       } catch (error) {
         console.error('Error loading data:', error);
       } finally {
@@ -121,7 +110,6 @@ const CRMContent: React.FC = () => {
     setEditingInvoice(null);
     setEditingOffer(null);
     setEditingRental(null);
-    setEditingProject(null);
   };
 
   // AI Generation placeholder
@@ -386,39 +374,6 @@ const CRMContent: React.FC = () => {
     handleUpdateToDo(id, { status: newStatus });
   };
 
-  // Project handlers
-  const handleEditProject = (project: Project) => {
-    setEditingProject(project);
-    setCurrentView('project-editor');
-  };
-
-  const handleSaveProject = (project: Project) => {
-    saveProject(project).then(success => {
-      if (success) {
-        setProjects(prev => {
-          const exists = prev.find(p => p.id === project.id);
-          if (exists) {
-            return prev.map(p => p.id === project.id ? project : p);
-          }
-          return [project, ...prev];
-        });
-        setCurrentView('projects');
-        setEditingProject(null);
-      }
-    });
-  };
-
-  const handleDeleteProject = (id: string) => {
-    deleteProject(id).then(success => {
-      if (success) {
-        setProjects(prev => prev.filter(p => p.id !== id));
-        if (currentView === 'project-editor') {
-          setCurrentView('projects');
-        }
-      }
-    });
-  };
-
   // Render current view
   const renderContent = () => {
     if (isLoading) {
@@ -580,29 +535,6 @@ const CRMContent: React.FC = () => {
             onUpdateToDo={handleUpdateToDo}
             onDeleteToDo={handleDeleteToDo}
             onMoveToDo={handleMoveToDo}
-          />
-        );
-
-      case 'projects':
-        return (
-          <ProjectList
-            projects={projects}
-            onAddProject={() => {
-              setEditingProject(null);
-              setCurrentView('project-editor');
-            }}
-            onEditProject={handleEditProject}
-            onDeleteProject={handleDeleteProject}
-          />
-        );
-
-      case 'project-editor':
-        return (
-          <ProjectEditor
-            project={editingProject}
-            onSave={handleSaveProject}
-            onDelete={handleDeleteProject}
-            onCancel={() => setCurrentView('projects')}
           />
         );
 

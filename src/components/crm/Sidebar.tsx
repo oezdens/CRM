@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { ViewState } from '@/types';
-import { LayoutDashboard, Users, Package, FileText, FileSpreadsheet, Key, CheckSquare, UserCircle, Menu, X, LogOut, FolderKanban } from 'lucide-react';
+import { LayoutDashboard, Users, Package, FileText, FileSpreadsheet, Key, CheckSquare, UserCircle, Menu, X, LogOut } from 'lucide-react';
 
 interface SidebarProps {
   currentView: ViewState;
@@ -15,7 +15,6 @@ export const Sidebar: React.FC<SidebarProps> = ({ currentView, onChangeView, use
   const menuItems = [
     { id: 'dashboard', label: 'Dashboard', icon: LayoutDashboard },
     { id: 'todos', label: 'To Do\'s', icon: CheckSquare },
-    { id: 'projects', label: 'Projekte', icon: FolderKanban },
     { id: 'customers', label: 'Kunden', icon: Users },
     { id: 'articles', label: 'Artikel', icon: Package },
     { id: 'offers', label: 'Angebote', icon: FileSpreadsheet },
@@ -31,7 +30,6 @@ export const Sidebar: React.FC<SidebarProps> = ({ currentView, onChangeView, use
     if (itemId === 'invoices' && current === 'invoice-editor') return true;
     if (itemId === 'offers' && current === 'offer-editor') return true;
     if (itemId === 'rentals' && current === 'rental-editor') return true;
-    if (itemId === 'projects' && current === 'project-editor') return true;
     return false;
   };
 
